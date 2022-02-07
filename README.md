@@ -1,6 +1,8 @@
-<span style='font-size:30px'>Text Normalization（文本正则化）</span>
+## Text Normalization（文本正则化）
 
-### 目前所有实验成果
+任务描述：通过机器学习算法将英文文本的“手写”形式转换成“口语“形式，例如“6ft”转换成“six feet”等
+
+### 目前实验成果
 
 1. XGBoost + bag-of-words: 0.99159
 2. XGBoost+Weights+rules：0.99002
@@ -11,16 +13,17 @@
 
 参考github网址：
 
+- https://www.kaggle.com/c/text-normalization-challenge-english-language （Task Description, Dataset）
 - https://github.com/applenob/text_normalization
 - https://github.com/songzy12/Text-Normalization
 - https://www.kaggle.com/alphasis/xgboost-with-context-label-data-acc-99-637
 
-数据网址：
+数据来源网址：
 
 - https://www.kaggle.com/c/text-normalization-challenge-english-language
 - https://www.kaggle.com/google-nlu/text-normalization 
 
-数据分析EDA网址（帮助快速理解数据）：
+数据分析EDA网址（帮助快速理解数据特征）：
 
 - https://www.kaggle.com/allunia/eda-en-text-normalization
 - https://www.kaggle.com/headsortails/watch-your-language-update-feature-engineering
@@ -37,8 +40,6 @@
 
 <span style="font-size:18px">**- 简单通用的算法**</span>
 
-~~欠采样（under-sampling）：舍弃一部分数据，使其与较少类别的数据相当~~（浪费数据）
-~~过采样（over-sampling）：对较少类别的数据重复使用一部分数据，使其与较多类别的数据相当~~（过拟合）
 阈值调整（threshold moving）：将原本默认为0.5的阈值调整到 较少类别/（较少类别+较多类别）即可。使用现有的**集成学习**分类器，如随机森林或者xgboost，并调整分类阈值
 
 <span style="font-size:18px">**- 对XGBoost模型数据的不平衡处理方法**</span>
@@ -79,8 +80,6 @@ Grid search（网格搜索），Random search（随机搜索），Genetic algori
   （1）需要优化的function计算起来非常费时费力，比如上面提到的神经网络的超参问题，每一次训练神经网络都是燃烧好多GPU的
   （2）你要优化的function没有导数信息
 
-  梯度提升树，朴素贝叶斯
-
 #### 3. 可解释性工具
 
 Xgboost相对于线性模型在进行预测时往往有更好的精度，但是同时也失去了线性模型的可解释性。所以Xgboost通常被认为是黑箱模型。
@@ -88,15 +87,10 @@ Xgboost相对于线性模型在进行预测时往往有更好的精度，但是�
 
 2017年，Lundberg和Lee的[论文]( [A Unified Approach to Interpreting Model Predictions.pdf](../文献阅读/A Unified Approach to Interpreting Model Predictions.pdf) )提出了SHAP值这一广泛适用的方法用来解释各种模型（分类以及回归），其中最大的受益者莫过于之前难以被理解的黑箱模型，如boosting和神经网络模型。
 
-
-
-（1)二分类，看下准确率，高的话
-
-（2）集成XGBoost，LGB，随机森林
-
-（3）可解释性，SHAP（SHAP值只能对特征进行分析）
-
-（4）去掉PLAIN看下效果，ROC
+1. 二分类，看下准确率，高的话
+2. 集成XGBoost，LGB，随机森林
+3. 可解释性，SHAP（SHAP值只能对特征进行分析）
+4. 去掉PLAIN看下效果，ROC
 
 ### 后续改进
 
