@@ -2,7 +2,7 @@
 
 任务描述：通过机器学习算法将英文文本的“手写”形式转换成“口语“形式，例如“6ft”转换成“six feet”等
 
-### 目前实验成果
+### 实验结果
 
 1. XGBoost + bag-of-words: 0.99159
 2. XGBoost+Weights+rules：0.99002
@@ -74,13 +74,12 @@ Grid search（网格搜索），Random search（随机搜索），Genetic algori
 
 但是在计算机资源有限的情况下，Grid search与Random search不一定比建模工程师的经验要好
 
-- **Bayesian Optimization**
-  适用场景：
+- **Bayesian Optimization**  
+适用场景：  
+（1）需要优化的function计算起来非常费时费力，比如上面提到的神经网络的超参问题，每一次训练神经网络都是燃烧好多GPU的  
+（2）你要优化的function没有导数信息
 
-  （1）需要优化的function计算起来非常费时费力，比如上面提到的神经网络的超参问题，每一次训练神经网络都是燃烧好多GPU的
-  （2）你要优化的function没有导数信息
-
-#### 3. 可解释性工具
+#### 3. 可解释性工具（https://www.kaggle.com/learn/machine-learning-explainability）  
 
 Xgboost相对于线性模型在进行预测时往往有更好的精度，但是同时也失去了线性模型的可解释性。所以Xgboost通常被认为是黑箱模型。
 经典方法是使用**全局特征重要性评估**
